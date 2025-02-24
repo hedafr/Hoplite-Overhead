@@ -6,7 +6,7 @@
 	"description": "Displays player stats on Hoplite server",
 	"authors": ["hedafr"],
 	"contact": {},
-	"license": "",
+	"license": "CC0",
 	"icon": "assets/overhead/icon.png",
 	"environment": "client",
 	"entrypoints": {
