@@ -2,7 +2,6 @@ package com.heda.overhead;
 
 import com.google.gson.JsonObject;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -26,10 +25,10 @@ public class PlayerDataCache {
      * Retrieves the stats for a given player.
      *
      * @param playerName The name of the player.
-     * @return The JsonObject containing the player's stats, or null if not found.
+     * @return The JsonObject containing the player's stats, or a new JsonObject if not found.
      */
     public static JsonObject getStats(String playerName) {
-        return playerStats.get(playerName);
+        return playerStats.computeIfAbsent(playerName, k -> new JsonObject());
     }
 
     /**
@@ -63,6 +62,6 @@ public class PlayerDataCache {
      * @return A map where the key is the player's name and the value is their stats.
      */
     public static Map<String, JsonObject> getAllStats() {
-        return new HashMap<>(playerStats);
+        return new ConcurrentHashMap<>(playerStats);
     }
 }

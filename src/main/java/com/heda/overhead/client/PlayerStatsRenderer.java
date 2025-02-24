@@ -52,7 +52,7 @@ public class PlayerStatsRenderer {
     }
 
     /**
-     * Renders the stats (health, kills, wins) for a given player.
+     * Renders the stats (health, kills) for a given player.
      *
      * @param player         The player entity whose stats are being rendered.
      * @param client         The Minecraft client instance.
@@ -71,14 +71,16 @@ public class PlayerStatsRenderer {
             return;
         }
 
-        // Extract kills and wins (default to 0 if missing)
+        // Extract kills (default to 0 if missing)
         int kills = stats.has("kills") ? stats.get("kills").getAsInt() : 0;
-        int wins = stats.has("wins") ? stats.get("wins").getAsInt() : 0;
 
         // Retrieve the player's health from the scoreboard
         int health = getPlayerHealth(player, client);
+        if (health <= 0) {
+            return; // Skip rendering if health is 0 or less
+        }
         String healthColor = getHealthColor(health);
-        String statsText = String.format("§7[%s%d HP§7] §7%d K %d W", healthColor, health, kills, wins);
+        String statsText = String.format("§7[%s%d HP§7] §7%d K", healthColor, health, kills);
 
         // Interpolate the player's position for smooth rendering and offset above the head
         float partialTicks = RenderSystem.getShaderGameTime();
