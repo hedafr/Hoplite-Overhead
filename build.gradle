@@ -1,0 +1,22 @@
+plugins {
+	id 'fabric-loom' version '1.9.2'
+}
+
+dependencies {
+	// Minecraft & Fabric Loader
+	minecraft "com.mojang:minecraft:1.21"
+	mappings "net.fabricmc:yarn:1.21+build.9"
+	modImplementation "net.fabricmc:fabric-loader:0.16.10"
+
+	// Fabric API (check latest version here: https://modmuss50.me/fabric.html)
+	modImplementation "net.fabricmc.fabric-api:fabric-api:0.102.0+1.21" // Updated version
+
+	// Gson for JSON parsing
+	implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+repositories {
+	// Ensure Fabric Maven is included
+	maven { url "https://maven.fabricmc.net/" }
+	mavenCentral()
+}

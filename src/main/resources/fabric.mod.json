@@ -1,0 +1,20 @@
+{
+	"schemaVersion": 1,
+	"id": "overhead",
+	"version": "1.0.0",
+	"name": "Hoplite Stats Mod",
+	"description": "Displays player stats on Hoplite servers",
+	"authors": ["Your Name"],
+	"contact": {},
+	"license": "MIT",
+	"icon": "assets/overhead/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": ["com.heda.overhead.OverHead"]
+	},
+	"depends": {
+		"fabricloader": ">=0.15.7",
+		"fabric-api": "*",
+		"minecraft": "1.21"
+	}
+}
